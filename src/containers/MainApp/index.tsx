@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, TodoHeader, TodoMainSection } from '../../components';
+import { Header, Body, TodoHeader, TodoMainSection } from '../../components';
 
 export namespace MainApp {
   export interface Props extends RouteComponentProps<void> {
@@ -23,6 +23,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     return (
       <div>
         <Header />
+        <Body />
       </div>
     );
   }
