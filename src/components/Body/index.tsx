@@ -1,5 +1,7 @@
 import * as React from 'react';
+import * as styles from './style.css';
 import YouTube from 'react-youtube';
+import { StyleConstants } from '../../constants/style';
 
 
 export namespace Body {
@@ -18,25 +20,29 @@ export class Body extends React.Component<Body.Props, Body.State> {
   }
 
   render() {
-    const opts = {
-      height: '390',
-      width: '640',
+    const playerOptions = {
       playerVars: { // https://developers.google.com/youtube/player_parameters
         autoplay: 1
       }
     };
 
-    const style = {
-      "text-align": "center"
-    };
-
     return (
-      <div style={style}>
-        <YouTube
-          videoId="2g811Eo7K8U"
-          opts={opts}
-          onReady={this._onReady}
-        />
+      <div className={styles.main}>
+        <div className={styles.section}> Bigass Fish </div>
+        <div className={styles.section}>
+          <YouTube
+            videoId="2g811Eo7K8U"
+            opts={playerOptions}
+            onReady={this._onReady}
+          />
+        </div>
+        <div className={styles.section}>
+          <div> <h1> A propos </h1> </div>
+          <div> Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip, la performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux Troubles propose des vidéoclips uniques possédant une vision artistique. </div>
+        </div>
+        <div className={styles.section}> Eaux Troubles C'est </div>
+        <div className={styles.section}> Nos Realisations </div>
+        <div className={styles.section}>  Nous Contacter </div>
       </div>
     );
   }

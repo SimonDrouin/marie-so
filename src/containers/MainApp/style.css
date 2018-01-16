@@ -1,0 +1,11 @@
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+  }
+
+  /* We tell all items to be 100% width, via flex-basis */
+  .wrapper > * {
+    flex: 1 100%;
+  }

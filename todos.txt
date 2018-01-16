@@ -1,0 +1,31 @@
+todo:
+    animer le poisson - checker avec marie (sa coloc)
+    todo: changer ordre:  ... - Video en vedette - A propos - Nos realisation - Equipe - contact
+    todo: verifier format des png (icones, titre du site, ...)
+    todo: trouver alternative gratuite a la font wigrum
+
+
+infinite scrolling
+
+p1 -> p2 animation poisson full screeen  vers petit icone haut gauche when scrolling
+
+p2: video en vedette  checker pour une facon simple pour eux de changer leurs videos
+
+eaux troubles cest:
+    cliquer sur image  montre BIO
+
+no realisations:
+
+    scrolling gauche droite  verifier pour ajotuer   fleches ou bouton horizontal
+
+    quand clique sur video -> page description/videoclip
+
+
+
+nous contacter:
+    manque submit button
+
+
+burger :
+    deviens top menu avec section titles, buger deviens un X
+

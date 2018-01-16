@@ -1,0 +1,17 @@
+
+.main {
+    padding-top: 40px;
+}
+
+.section {
+    height: 100vh;
+    padding-left: 15vh;
+    padding-right: 15vh;
+}
+
+@media all and (max-width: 800px) {
+    .section {
+        padding: 0%;
+        width: 100vw;
+    }
+}
