@@ -4,9 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { configureStore } from './store';
-import { TodoApp } from './containers/TodoApp';
 import Routes from './routes';
-
 
 const store = configureStore();
 const history = createBrowserHistory();
@@ -14,12 +12,10 @@ const history = createBrowserHistory();
 const _appRoutes = Routes.map(route => <Route path={route.path} component={route.component as any} key={route.path} />);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Switch>
-        { _appRoutes }
-      </Switch>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <Router history={history}>
+            <Switch>{_appRoutes}</Switch>
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );

@@ -1,5 +1,3 @@
 import { Route } from './route';
 
-export {
-    Route
-}
+export { Route };
