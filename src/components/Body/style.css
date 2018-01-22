@@ -1,12 +1,9 @@
 
-.main {
-    padding-top: 40px;
-}
-
 .section {
     height: 100vh;
     padding-left: 15vh;
     padding-right: 15vh;
+    flex: 1 100%;
 }
 
 @media all and (max-width: 800px) {
