@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as styles from './style.css';
 import { StyleConstants } from '../../constants/style';
-import { SectionsEnum } from '../../constants/navigation';
-import { SCROLL_TO_SECTION } from '../../actions/constants/navigation-action-constants';
+import { SectionsEnumStr } from '../../constants/navigation';
 
 export namespace Body {
     export interface Props {
-        sections: { id: SectionsEnum; component: JSX.Element; style?: any }[];
+        sections: { id: SectionsEnumStr; component: JSX.Element; style?: any }[];
     }
 
     export interface State {}

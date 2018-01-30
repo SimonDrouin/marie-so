@@ -3,6 +3,8 @@
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
+    background-color: black;
+    color: white;
   }
 
   /* We tell all items to be 100% width, via flex-basis */

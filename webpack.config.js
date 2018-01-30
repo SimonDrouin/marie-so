@@ -70,7 +70,7 @@ module.exports = {
             { test: /\.html$/, use: 'html-loader' },
             { test: /\.png$/, use: 'url-loader?limit=10000' },
             {
-                test: /\.jpg$/,
+                test: /\.(jpg|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',

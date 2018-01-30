@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleConstants } from '../../constants/style';
-import { SectionsEnum } from '../../constants/navigation';
+import { SectionsEnumStr } from '../../constants/navigation';
 import { RootState } from '../../reducers/index';
 import { bindActionCreators } from 'redux';
 import * as NavigationActions from '../../actions/navigation-actions';
@@ -8,8 +8,9 @@ import { connect } from 'react-redux';
 
 export namespace Header {
     export interface Props {
-        sections: SectionsEnum[];
-        image: any;
+        sections: SectionsEnumStr[];
+        logo: any;
+        burger: any;
         actions?: any;
         menuIsOpen?: boolean;
     }
@@ -56,7 +57,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
     render() {
         const logo = (
             <div style={this.logoStyle}>
-                <img src={this.props.image} height={StyleConstants.TOP_MENU_HEIGHT} />
+                <img src={this.props.logo} height={StyleConstants.TOP_MENU_HEIGHT} />
             </div>
         );
 
@@ -66,7 +67,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
                     key={`${section}-header-menu-item`}
                     style={this.menuStyle}
                     onClick={() => {
-                        this.props.actions.scrollToSection(section);
+                        this.props.actions.scroll(section);
                     }}
                 >
                     {section}
@@ -81,7 +82,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
                     this.onBurgerClick();
                 }}
             >
-                |||
+                <img src={this.props.burger} height={StyleConstants.TOP_MENU_HEIGHT} />
             </div>
         );
 

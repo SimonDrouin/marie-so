@@ -5,18 +5,18 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
 import { Header, Body, Scroller } from '../../components';
-import { SectionsEnum } from '../../constants/navigation';
+import { SectionsEnumStr } from '../../constants/navigation';
 import YouTube from 'react-youtube';
 import { StyleConstants } from '../../constants/style';
 import * as Actions from '../../actions';
 
 import * as styles from './style.css';
-const logo = require('./logo-main.jpg');
+const logo = require('./logo-main.svg');
 
 export namespace MainApp {
     export interface Props extends RouteComponentProps<void> {
-        currentSection: SectionsEnum;
-        sections: SectionsEnum[];
+        currentSection: SectionsEnumStr;
+        sections: SectionsEnumStr[];
         screenHeight: number;
         screenWidth: number;
         offsetY: number;
@@ -31,13 +31,7 @@ export namespace MainApp {
 @connect(mapStateToProps, mapDispatchToProps)
 export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     onScroll() {
-        let shouldShowHeaders = window.pageYOffset >= this.props.screenHeight;
-
-        if ((!this.props.showHeaders && shouldShowHeaders) || (this.props.showHeaders && !shouldShowHeaders)) {
-            this.props.actions.showHeaders();
-        }
-
-        // NOOP
+        this.props.actions.scroll();
     }
 
     onResize() {
@@ -81,7 +75,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
 
         let SECTIONS = [
             {
-                id: SectionsEnum.WelcomeSection,
+                id: SectionsEnumStr.WelcomeSection,
                 component: (
                     <div>
                         <img src={logo} height={this.props.screenHeight} width={this.props.screenWidth} />
@@ -93,15 +87,15 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 }
             },
             {
-                id: SectionsEnum.HighlightSection,
-                component: <YouTube videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />,
+                id: SectionsEnumStr.HighlightSection,
+                component: <YouTube id="main-player" videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />,
                 style: {
                     paddingLeft: '0px',
                     paddingRight: '0px'
                 }
             },
             {
-                id: SectionsEnum.AboutCompanySection,
+                id: SectionsEnumStr.AboutCompanySection,
                 component: (
                     <div>
                         {' '}
@@ -112,19 +106,26 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 )
             },
             {
-                id: SectionsEnum.AboutTeamSection,
-                component: <div>Eaux Troubles C'est</div>
+                id: SectionsEnumStr.AboutTeamSection,
+                component: <div>Eaux Troubles C'est
+                    <img src={require('./annabelle.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                    <img src={require('./charles.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                    <img src={require('./guillaume.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                    <img src={require('./juliette.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                    <img src={require('./marc.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                    <img src={require('./marie-soleil.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
+                </div>
             },
             {
-                id: SectionsEnum.LibrarySection,
+                id: SectionsEnumStr.LibrarySection,
                 component: <div>Nos Realisations</div>
             },
             {
-                id: SectionsEnum.ContactUsSection,
+                id: SectionsEnumStr.ContactUsSection,
                 component: <div>Nous Contacter</div>
             }
         ];
-        const header = <Header sections={SECTIONS.map(({ id }) => id)} image={require('./logo-header.jpg')} />;
+        const header = <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')}/>;
 
         return (
             <div className={styles.wrapper}>
