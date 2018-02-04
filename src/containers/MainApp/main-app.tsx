@@ -64,7 +64,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     }
 
     render() {
-        let playerOptions = {
+        const playerOptions = {
             height: this.props.screenHeight,
             width: this.props.screenWidth,
             playerVars: {
@@ -73,7 +73,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             }
         };
 
-        let SECTIONS = [
+        const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
                 component: (
@@ -107,14 +107,34 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             },
             {
                 id: SectionsEnumStr.AboutTeamSection,
-                component: <div>Eaux Troubles C'est
-                    <img src={require('./annabelle.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                    <img src={require('./charles.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                    <img src={require('./guillaume.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                    <img src={require('./juliette.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                    <img src={require('./marc.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                    <img src={require('./marie-soleil.svg')} height={this.props.screenHeight / 6} width={this.props.screenWidth / 6} />
-                </div>
+                component: (
+                    <div>
+                        <div>
+                            {' '}
+                            <h2> Eaux Troubles C'est</h2>{' '}
+                        </div>
+                        <div className={styles.teamMembersContainer}>
+                            <div>
+                                <img src={require('./annabelle.svg')} height={120} width={120} /> <div>ANABEL B. BOIVIN</div>{' '}
+                            </div>
+                            <div>
+                                <img src={require('./charles.svg')} height={120} width={120} /> <div>CHARLES ???</div>{' '}
+                            </div>
+                            <div>
+                                <img src={require('./guillaume.svg')} height={120} width={120} /> <div>GUILLAUME L.-MERCIER</div>{' '}
+                            </div>
+                            <div>
+                                <img src={require('./juliette.svg')} height={120} width={120} /> <div>JULIETTE BLONDEAU</div>{' '}
+                            </div>
+                            <div>
+                                <img src={require('./marc.svg')} height={120} width={120} /> <div>MARC-ANDRÉ MORISSETTE</div>{' '}
+                            </div>
+                            <div>
+                                <img src={require('./marie-soleil.svg')} height={120} width={120} /> <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
+                            </div>
+                        </div>
+                    </div>
+                )
             },
             {
                 id: SectionsEnumStr.LibrarySection,
@@ -125,7 +145,9 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 component: <div>Nous Contacter</div>
             }
         ];
-        const header = <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')}/>;
+        const header = (
+            <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
+        );
 
         return (
             <div className={styles.wrapper}>

@@ -11,3 +11,21 @@
   .wrapper > * {
     flex: 1 100%;
   }
+
+.teamMembersContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.teamMembersContainer > * {
+  width: '120px';
+}
+
+/* Mobile */
+@media all and (max-width: 500px) {
+  .teamMembersContainer {
+    flex-direction: column;
+  }
+}
