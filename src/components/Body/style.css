@@ -4,6 +4,9 @@
     padding-left: 15vh;
     padding-right: 15vh;
     flex: 1 100%;
+    border-bottom: 1px;
+    border-bottom-color: #80808045;
+    border-bottom-style: solid;
 }
 
 @media all and (max-width: 800px) {

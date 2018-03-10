@@ -5,6 +5,7 @@ import { RootState } from '../../reducers/index';
 import { bindActionCreators } from 'redux';
 import * as NavigationActions from '../../actions/navigation-actions';
 import { connect } from 'react-redux';
+import * as styles from './style.css';
 
 export namespace Header {
     export interface Props {
@@ -40,7 +41,8 @@ export class Header extends React.Component<Header.Props, Header.State> {
     readonly logoStyle: any = {
         display: 'inline-block',
         position: 'fixed',
-        left: '0vw'
+        left: '0vw',
+        paddingLeft: StyleConstants.TOP_MENU_ITEM_PADDING
     };
 
     readonly menuStyle: any = {
@@ -49,31 +51,35 @@ export class Header extends React.Component<Header.Props, Header.State> {
     };
 
     readonly burgerStyle: any = {
+        height: '40px',
+        width: '40px',
         display: 'inline-block',
         position: 'fixed',
-        right: '0vw'
+        right: '0vw',
+        padding: StyleConstants.TOP_MENU_BURGER_PADDING
     };
 
     render() {
         const logo = (
             <div style={this.logoStyle}>
-                <img src={this.props.logo} height={StyleConstants.TOP_MENU_HEIGHT} />
+                <img src={this.props.logo} width='100px' />
             </div>
         );
 
-        const menu = this.props.sections.map(section => {
-            return (
-                <div
-                    key={`${section}-header-menu-item`}
-                    style={this.menuStyle}
-                    onClick={() => {
-                        this.props.actions.scroll(section);
-                    }}
-                >
-                    {section}
-                </div>
-            );
-        });
+        const menu = <div className={styles.headerContainer}>
+            {this.props.sections.map(section => {
+                return (
+                    <div key={`${section}-header-menu-item`}
+                        style={this.menuStyle}
+                        onClick={() => {
+                            this.props.actions.scroll(section);
+                        }}
+                    >
+                        {section}
+                    </div>
+                );
+            })}
+        </div>
 
         const burger = (
             <div
@@ -82,7 +88,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
                     this.onBurgerClick();
                 }}
             >
-                <img src={this.props.burger} height={StyleConstants.TOP_MENU_HEIGHT} />
+                <img src={this.props.burger} />
             </div>
         );
 

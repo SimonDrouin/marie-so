@@ -1,0 +1,7 @@
+.mediaPlayer{
+    margin: 100px 0px 100px 0px;
+    width: 100%;
+    height: calc((9/16)*65vw);
+    top: 50%;
+
+}

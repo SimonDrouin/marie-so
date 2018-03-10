@@ -22,6 +22,7 @@ export namespace Scroller {
 @connect(mapStateToProps, mapDispatchToProps)
 export class Scroller extends React.Component<Scroller.Props, Scroller.State> {
     readonly style: any = {
+        padding: '20px',
         overflow: 'hidden',
         position: 'fixed',
         right: '0vw',

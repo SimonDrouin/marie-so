@@ -1,0 +1,17 @@
+.headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    -webkit-flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+/* .headerContainer > * {
+    width: '120px';
+} */
+
+/* Mobile */
+@media all and (max-width: 500px) {
+    .headerContainer {
+        flex-direction: column;
+    }
+}

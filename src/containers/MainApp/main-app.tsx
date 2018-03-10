@@ -4,9 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, Body, Scroller } from '../../components';
+import { Header, Body, Scroller, Player } from '../../components';
 import { SectionsEnumStr } from '../../constants/navigation';
-import YouTube from 'react-youtube';
 import { StyleConstants } from '../../constants/style';
 import * as Actions from '../../actions';
 
@@ -64,15 +63,6 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     }
 
     render() {
-        const playerOptions = {
-            height: this.props.screenHeight,
-            width: this.props.screenWidth,
-            playerVars: {
-                // https://developers.google.com/youtube/player_parameters
-                autoplay: 1
-            }
-        };
-
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
@@ -86,9 +76,18 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                     paddingRight: '0px'
                 }
             },
+            // {
+            //     id: SectionsEnumStr.HighlightSection,
+            //     component: <YouTube id="main-player" videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />,
+            //     style: {
+            //         width: '80%',
+            //         height: '80%',
+            //         margin: '10%'
+            //     }
+            // },
             {
                 id: SectionsEnumStr.HighlightSection,
-                component: <YouTube id="main-player" videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />,
+                component: <Player> </Player>,
                 style: {
                     paddingLeft: '0px',
                     paddingRight: '0px'
@@ -118,7 +117,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                 <img src={require('./annabelle.svg')} height={120} width={120} /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
                             <div>
-                                <img src={require('./charles.svg')} height={120} width={120} /> <div>CHARLES ???</div>{' '}
+                                <img src={require('./charles.svg')} height={120} width={120} /> <div>CHARLES TYSON</div>{' '}
                             </div>
                             <div>
                                 <img src={require('./guillaume.svg')} height={120} width={120} /> <div>GUILLAUME L.-MERCIER</div>{' '}

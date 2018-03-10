@@ -5,6 +5,8 @@
     text-align: center;
     background-color: black;
     color: white;
+
+    font-family: 'Montserrat', serif;
   }
 
   /* We tell all items to be 100% width, via flex-basis */
