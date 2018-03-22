@@ -1,0 +1,31 @@
+.icon {
+    border: 3px solid white;
+    border-radius: 1em;
+    display: inline-block;
+    font-size: 2em;
+    height: 0.25em;
+    margin: 3px;
+    width: 0.25em;
+    z-index: 1000;
+
+    transition: .10s ease-in-out 0s;
+}
+
+.selected {
+    background-color: white;
+}
+
+.icon:hover {
+    background-color: white;
+    transition: .10s ease-in-out 0s;
+}
+
+.container {
+    padding: 20px;
+    overflow: hidden;
+    position: fixed;
+    right: 0vw;
+    top: 50vh;
+    border: 1px solid black;
+    z-index: 1000;
+}

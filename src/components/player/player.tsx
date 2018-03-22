@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { SectionsEnumStr } from '../../../constants/navigation';
-import { StyleConstants } from '../../../constants/style';
+import { SectionsEnumStr } from '../../constants/navigation';
+import { StyleConstants } from '../../constants/style';
 import { connect } from 'react-redux';
-import { RootState } from '../../../reducers';
+import { RootState } from '../../reducers';
 import { bindActionCreators } from 'redux';
-import * as NavigationActions from '../../../actions/navigation-actions';
+import * as NavigationActions from '../../actions/navigation-actions';
 import YouTube from 'react-youtube';
 import * as styles from './style.css';
 

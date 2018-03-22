@@ -20,7 +20,6 @@ export namespace MainApp {
         screenWidth: number;
         offsetY: number;
         showHeaders: boolean;
-
         actions?: any;
     }
 
@@ -76,15 +75,6 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                     paddingRight: '0px'
                 }
             },
-            // {
-            //     id: SectionsEnumStr.HighlightSection,
-            //     component: <YouTube id="main-player" videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />,
-            //     style: {
-            //         width: '80%',
-            //         height: '80%',
-            //         margin: '10%'
-            //     }
-            // },
             {
                 id: SectionsEnumStr.HighlightSection,
                 component: <Player> </Player>,
