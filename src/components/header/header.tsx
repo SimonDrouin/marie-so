@@ -33,29 +33,23 @@ export class Header extends React.Component<Header.Props, Header.State> {
         overflow: 'hidden',
         position: 'fixed',
         width: '100%',
-        height: StyleConstants.TOP_MENU_HEIGHT,
         border: '1px solid black',
         top: '0vh'
     };
 
     readonly logoStyle: any = {
-        display: 'inline-block',
         position: 'fixed',
-        left: '0vw',
+        left: '0px',
+        top: '0px',
         paddingLeft: StyleConstants.TOP_MENU_ITEM_PADDING
-    };
-
-    readonly menuStyle: any = {
-        display: 'inline-block',
-        width: 100 / (this.props.sections.length + 1) + 'vw'
     };
 
     readonly burgerStyle: any = {
         height: '40px',
         width: '40px',
-        display: 'inline-block',
         position: 'fixed',
-        right: '0vw',
+        right: '0px',
+        top: '0px',
         padding: StyleConstants.TOP_MENU_BURGER_PADDING
     };
 
@@ -66,11 +60,11 @@ export class Header extends React.Component<Header.Props, Header.State> {
             </div>
         );
 
-        const menu = <div className={styles.headerContainer}>
+        const menu = <div className={styles.container}>
             {this.props.sections.map(section => {
                 return (
                     <div key={`${section}-header-menu-item`}
-                        style={this.menuStyle}
+                        className={styles.item}
                         onClick={() => {
                             this.props.actions.scroll(section);
                         }}

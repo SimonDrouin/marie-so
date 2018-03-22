@@ -1,17 +1,19 @@
-.headerContainer {
-    display: flex;
+.container {
     flex-flow: row nowrap;
     -webkit-flex-flow: row nowrap;
     justify-content: space-around;
+    padding: 1vw 12vw;
 }
 
-/* .headerContainer > * {
-    width: '120px';
-} */
 
 /* Mobile */
-@media all and (max-width: 500px) {
-    .headerContainer {
+@media all and (max-width: 600px) {
+    .container {
         flex-direction: column;
     }
+}
+
+.item {
+    display: inline-flex;
+    padding: 20px;
 }
