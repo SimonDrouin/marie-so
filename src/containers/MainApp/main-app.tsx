@@ -62,6 +62,8 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     }
 
     render() {
+        const teamMemberIconSize = 120;
+
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
@@ -99,27 +101,62 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 component: (
                     <div>
                         <div>
-                            {' '}
-                            <h2> Eaux Troubles C'est</h2>{' '}
+                            <h2>Eaux Troubles</h2>
+                            <h3>
+                                <i>C'EST</i>
+                            </h3>
                         </div>
-                        <div className={styles.teamMembersContainer}>
-                            <div>
-                                <img src={require('./annabelle.svg')} height={120} width={120} /> <div>ANABEL B. BOIVIN</div>{' '}
+                        <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
+                            <div
+                                style={{
+                                    paddingLeft: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`,
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}
+                            >
+                                <img src={require('./annabelle.svg')} height={120} width={teamMemberIconSize} /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
-                            <div>
-                                <img src={require('./charles.svg')} height={120} width={120} /> <div>CHARLES TYSON</div>{' '}
+                            <div
+                                style={{
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}
+                            >
+                                <img src={require('./charles.svg')} height={120} width={teamMemberIconSize} /> <div>CHARLES TYSON</div>{' '}
                             </div>
-                            <div>
-                                <img src={require('./guillaume.svg')} height={120} width={120} /> <div>GUILLAUME L.-MERCIER</div>{' '}
+                            <div style={{
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}>
+                                <img src={require('./guillaume.svg')} height={120} width={teamMemberIconSize} />{' '}
+                                <div>GUILLAUME L.-MERCIER</div>{' '}
                             </div>
-                            <div>
-                                <img src={require('./juliette.svg')} height={120} width={120} /> <div>JULIETTE BLONDEAU</div>{' '}
+                            <div style={{
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}>
+                                <img src={require('./juliette.svg')} height={120} width={teamMemberIconSize} /> <div>JULIETTE BLONDEAU</div>{' '}
                             </div>
-                            <div>
-                                <img src={require('./marc.svg')} height={120} width={120} /> <div>MARC-ANDRÉ MORISSETTE</div>{' '}
+                            <div style={{
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}>
+                                <img src={require('./marc.svg')} height={120} width={teamMemberIconSize} /> <div>MARC-ANDRÉ MORISSETTE</div>{' '}
                             </div>
-                            <div>
-                                <img src={require('./marie-soleil.svg')} height={120} width={120} /> <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
+                            <div style={{
+                                    paddingRight: `${
+                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
+                                    }px`
+                                }}>
+                                <img src={require('./marie-soleil.svg')} height={120} width={teamMemberIconSize} />{' '}
+                                <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
                             </div>
                         </div>
                     </div>
