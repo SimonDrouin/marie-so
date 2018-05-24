@@ -22,6 +22,11 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+.sectionHeader {
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+}
+
 .scrollHorizontal > .scrollItem {
   flex: 0 0 auto;
 }
@@ -32,3 +37,70 @@
 
   }
 } */
+
+
+/* Sections */
+.contactSection {
+  text-align: left;
+}
+
+.contactFormSection {
+  padding: 2vw 0vw;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.contactInfos {
+  padding: 2vw 0vw;
+}
+
+
+
+
+
+
+
+.formStyle{
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.formStyle input[type="text"],
+.formStyle input[type="date"],
+.formStyle input[type="datetime"],
+.formStyle input[type="email"],
+.formStyle input[type="number"],
+.formStyle input[type="search"],
+.formStyle input[type="time"],
+.formStyle input[type="url"],
+.formStyle input[type="password"],
+.formStyle textarea,
+.formStyle select
+{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  display: block;
+  border: none;
+  border-bottom: solid #FFFFFF;
+  background: transparent;
+  height: 30px;
+  width: 300px;
+  color: #FFFFFF;
+
+  border-bottom-width: 1px;
+  -webkit-transition: border-bottom-width 0.1s linear; /* Safari */
+  transition: border-bottom-width 0.1s linear;
+}
+
+.formStyle input:focus
+{
+  border-bottom-width: 3px;
+}
+
+.formStyle textarea{
+  resize:none;
+  overflow: hidden;
+}

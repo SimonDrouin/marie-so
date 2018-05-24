@@ -77,34 +77,28 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                     paddingRight: '0px'
                 }
             },
-            {
-                id: SectionsEnumStr.HighlightSection,
-                component: <Player> </Player>,
-                style: {
-                    paddingLeft: '0px',
-                    paddingRight: '0px'
-                }
-            },
+            // {
+            //     id: SectionsEnumStr.HighlightSection,
+            //     component: <Player> </Player>,
+            //     style: {
+            //         paddingLeft: '0px',
+            //         paddingRight: '0px'
+            //     }
+            // },
             {
                 id: SectionsEnumStr.AboutCompanySection,
                 component: (
                     <div>
-                        {' '}
-                        Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip, la
-                        performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux Troubles
-                        propose des vidéoclips uniques possédant une vision artistique.{' '}
-                    </div>
-                )
-            },
-            {
-                id: SectionsEnumStr.AboutTeamSection,
-                component: (
-                    <div>
+                        <div className={styles.sectionHeader}>
+                            <h2>À Propos</h2>
+                        </div>
                         <div>
-                            <h2>Eaux Troubles</h2>
-                            <h3>
-                                <i>C'EST</i>
-                            </h3>
+                            Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip, la
+                            performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux Troubles
+                            propose des vidéoclips uniques possédant une vision artistique.
+                        </div>
+                        <div className={styles.sectionHeader}>
+                            <h3>L'Équipe</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
                             <div
@@ -162,15 +156,68 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                     </div>
                 )
             },
-            {
-                id: SectionsEnumStr.LibrarySection,
-                component: <div>Nos Realisations</div>
-            },
+            // {
+            //     id: SectionsEnumStr.LibrarySection,
+            //     component: <div>Nos Realisations</div>
+            // },
             {
                 id: SectionsEnumStr.ContactUsSection,
-                component: <div>Nous Contacter</div>
+                component: <div className={styles.contactSection}>
+                    <div className={styles.sectionHeader}>
+                        <h2> Nous Contacter </h2>
+                    </div>
+                    <div>
+                        <div className={styles.contactInfos}>
+                            <h3>NOTRE BUREAU</h3>
+                            <div>
+                                <div>
+                                    Marie-Soleil Choquette - Coordonatrice
+                                </div>
+                                <div>
+                                    / 514.475.2140
+                                </div>
+                                <div>
+                                    info@eauxtroubles.ca
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.formStyle}>
+                            <div className={styles.contactFormSection}>
+                                <div>
+                                    <div>
+                                        NOM
+                                    </div>
+                                    <input type="text" name="name" value="" />
+                                </div>
+                                <div className={styles.contactFormField}>
+                                    <div>
+                                        E-MAIL
+                                    </div>
+                                    <input type="text" name="email" value="" />
+                                </div>
+                                <div className={styles.contactFormField}>
+                                    <div>
+                                        SUJET
+                                    </div>
+                                    <input type="text" name="subject" value="" />
+                                </div>
+                            </div>
+                            <div className={styles.contactFormSection}>
+                                <div>
+                                    <div>
+                                        TEXTE
+                                    </div>
+                                    <div>
+                                        <textarea name="content" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         ];
+
         const header = (
             <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
         );
