@@ -8,7 +8,6 @@ import Routes from './routes';
 
 const store = configureStore();
 const history = createBrowserHistory();
-// const scroller = createScrollMiddleware();
 
 const _appRoutes = Routes.map(route => <Route path={route.path} component={route.component as any} key={route.path} />);
 

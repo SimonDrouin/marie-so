@@ -20,6 +20,12 @@ export namespace MainApp {
         screenWidth: number;
         offsetY: number;
         showHeaders: boolean;
+
+        emailInputValue: string;
+        nameInputValue: string;
+        subjectInputValue: string;
+        emailContentInputValue: string;
+
         actions?: any;
     }
 
@@ -187,19 +193,19 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                     <div>
                                         NOM
                                     </div>
-                                    <input type="text" name="name" value="" />
+                                    <input type="text" name="name" value={this.props.nameInputValue} onChange={(e) => this.props.actions.contactUsNameInputValueChanged(e.target.value)} />
                                 </div>
                                 <div className={styles.contactFormField}>
                                     <div>
                                         E-MAIL
                                     </div>
-                                    <input type="text" name="email" value="" />
+                                    <input type="text" name="email" value={this.props.emailInputValue} onChange={(e) => this.props.actions.contactUsEmailInputValueChanged(e.target.value)} />
                                 </div>
                                 <div className={styles.contactFormField}>
                                     <div>
                                         SUJET
                                     </div>
-                                    <input type="text" name="subject" value="" />
+                                    <input type="text" name="subject" value={this.props.subjectInputValue} onChange={(e) => this.props.actions.contactUsSubjectInputValueChanged(e.target.value)} />
                                 </div>
                             </div>
                             <div className={styles.contactFormSection}>
@@ -208,7 +214,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                         TEXTE
                                     </div>
                                     <div>
-                                        <textarea name="content" value="" />
+                                        <textarea name="content" value={this.props.emailContentInputValue} onChange={(e) => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)} />
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +243,12 @@ function mapStateToProps(state: RootState) {
         currentSection: state.navigation.currentSection,
         showHeaders: state.navigation.showHeaders,
         screenHeight: state.window.screenHeight,
-        screenWidth: state.window.screenWidth
+        screenWidth: state.window.screenWidth,
+
+        emailInputValue: state.contactUsForm.emailInputValue,
+        nameInputValue: state.contactUsForm.nameInputValue,
+        subjectInputValue: state.contactUsForm.subjectInputValue,
+        emailContentInputValue: state.contactUsForm.emailContentInputValue
     };
 }
 
