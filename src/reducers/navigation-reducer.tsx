@@ -32,12 +32,13 @@ export default handleActions<NavigationStoreState, SectionsEnumStr>(
             });
         },
         [Actions.SCROLL]: (state, action) => {
-            let screenHeight = getScreenHeight();
-            let sectionNumber = Math.floor((window.pageYOffset + screenHeight / 2) / screenHeight);
-            sectionNumber = sectionNumber > 5 ? 5 : sectionNumber;
+            let sectionNumber = _.reduce(_.map(_.keys(SectionsEnumStr), sectionId => {
+                return document.getElementById(sectionId).getBoundingClientRect().top;
+            }), (currentSection, section) => {
+                return Math.min(Math.abs(currentSection), Math.abs(section))
+            }, 0);
 
             let shouldShowHeaders = sectionNumber !== SectionsEnum.WelcomeSection;
-
             if ((!state.showHeaders && shouldShowHeaders) || (state.showHeaders && !shouldShowHeaders)) {
                 state.showHeaders = !state.showHeaders;
             }

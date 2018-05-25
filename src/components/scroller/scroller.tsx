@@ -26,7 +26,6 @@ export class Scroller extends React.Component<Scroller.Props, Scroller.State> {
         super(props, context);
     }
 
-    // <div>{this.props.currentSection === section ? 'O' : 'o'}</div>
     render() {
         return (
             <div className={styles.container}>
