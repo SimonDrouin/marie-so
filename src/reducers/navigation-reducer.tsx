@@ -6,13 +6,13 @@ import { getScreenHeight, getScreenWidth } from '../helpers';
 import { SectionsEnum, SectionsEnumStr } from '../constants/navigation';
 
 declare type NavigationStoreState = {
-    currentSection: SectionsEnum;
+    currentSection: SectionsEnumStr;
     menuIsOpen: boolean;
     showHeaders: boolean;
 };
 
 const initialState: NavigationStoreState = {
-    currentSection: SectionsEnum.WelcomeSection,
+    currentSection: SectionsEnumStr.WelcomeSection,
     menuIsOpen: false,
     showHeaders: false
 };
@@ -32,19 +32,25 @@ export default handleActions<NavigationStoreState, SectionsEnumStr>(
             });
         },
         [Actions.SCROLL]: (state, action) => {
-            let sectionNumber = _.reduce(_.map(_.keys(SectionsEnumStr), sectionId => {
-                return document.getElementById(sectionId).getBoundingClientRect().top;
-            }), (currentSection, section) => {
-                return Math.min(Math.abs(currentSection), Math.abs(section))
-            }, 0);
 
-            let shouldShowHeaders = sectionNumber !== SectionsEnum.WelcomeSection;
+            let section = _.reduce(
+                _.keys(SectionsEnumStr),
+                (currentSectionId, sectionId) => {
+                    const currentSection_Y = document.getElementById(currentSectionId).getBoundingClientRect().top;
+                    const y = document.getElementById(sectionId).getBoundingClientRect().top;
+
+                    return Math.abs(y) < Math.abs(currentSection_Y) ? sectionId : currentSectionId;
+                },
+                SectionsEnumStr.WelcomeSection
+            );
+
+            let shouldShowHeaders = section !== SectionsEnumStr.WelcomeSection;
             if ((!state.showHeaders && shouldShowHeaders) || (state.showHeaders && !shouldShowHeaders)) {
                 state.showHeaders = !state.showHeaders;
             }
 
-            if (state.currentSection !== SectionsEnumStr[SectionsEnum[sectionNumber]]) {
-                state.currentSection = SectionsEnumStr[SectionsEnum[sectionNumber]];
+            if (state.currentSection !== section) {
+                state.currentSection = section;
             }
 
             return Object.assign({}, state);

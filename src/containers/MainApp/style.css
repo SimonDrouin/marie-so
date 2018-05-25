@@ -34,12 +34,15 @@
 /* Mobile */
 /* @media all and (max-width: 500px) {
   .teamMember {
-
   }
 } */
 
 
 /* Sections */
+.teamMembersContainer {
+  justify-content: space-between;
+}
+
 .contactSection {
   text-align: left;
 }

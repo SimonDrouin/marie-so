@@ -84,7 +84,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: sourcePath,
-        hot: true,
+    hot: true,
         stats: {
             warnings: false
         }
