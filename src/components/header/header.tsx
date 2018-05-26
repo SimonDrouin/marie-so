@@ -30,7 +30,6 @@ export class Header extends React.Component<Header.Props, Header.State> {
     }
 
     readonly style: any = {
-        overflow: 'hidden',
         position: 'fixed',
         width: '100%',
         border: '1px solid black',
@@ -56,7 +55,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
     render() {
         const logo = (
             <div style={this.logoStyle}>
-                <img src={this.props.logo} width='100px' />
+                <img src={this.props.logo} width='100px'/>
             </div>
         );
 
@@ -88,9 +87,9 @@ export class Header extends React.Component<Header.Props, Header.State> {
 
         return (
             <div style={this.style}>
-                {logo}
+                {this.props.menuIsOpen ? null : logo}
                 {this.props.menuIsOpen ? menu : null}
-                {burger}
+                {burger} {/* TODO: on menu open replace with close icon */}
             </div>
         );
     }

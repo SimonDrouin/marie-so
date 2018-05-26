@@ -187,8 +187,8 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.formStyle}>
-                            <div className={styles.contactFormSection}>
+                        <div className={`${styles.formStyle}`}>
+                            <div className={`${styles.contactFormSection} ${styles.flexContainer} ${styles.wrap}`}>
                                 <div>
                                     <div>
                                         NOM
@@ -208,13 +208,15 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                     <input type="text" name="subject" value={this.props.subjectInputValue} onChange={(e) => this.props.actions.contactUsSubjectInputValueChanged(e.target.value)} />
                                 </div>
                             </div>
-                            <div className={styles.contactFormSection}>
+                            <div className={`${styles.contactFormSection}`}>
                                 <div>
                                     <div>
                                         TEXTE
                                     </div>
                                     <div>
-                                        <textarea name="content" value={this.props.emailContentInputValue} onChange={(e) => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)} />
+                                        <textarea name="content"
+                                            value={this.props.emailContentInputValue}
+                                            onChange={(e) => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)} />
                                     </div>
                                 </div>
                             </div>

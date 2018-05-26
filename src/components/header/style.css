@@ -3,6 +3,8 @@
     -webkit-flex-flow: row nowrap;
     justify-content: space-around;
     padding: 1vw 12vw;
+    background-color: black;
+    z-index: 9999;
 }
 
 

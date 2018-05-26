@@ -1,3 +1,6 @@
+::-webkit-scrollbar {
+  display: none;
+}
 
 .wrapper {
     display: flex;
@@ -45,24 +48,21 @@
 
 .contactSection {
   text-align: left;
+  justify-content: space-between;
+  align-content: space-between;
 }
 
 .contactFormSection {
-  padding: 2vw 0vw;
-  width: 100%;
-  display: inline-flex;
+  padding-top: 3vw;
   justify-content: space-between;
+  align-content: space-between;
 }
 
 .contactInfos {
   padding: 2vw 0vw;
 }
 
-
-
-
-
-
+/* Forms */
 
 .formStyle{
   background: #000000;
@@ -81,21 +81,32 @@
 .formStyle textarea,
 .formStyle select
 {
+  font-size: medium;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   outline: none;
-  display: block;
   border: none;
   border-bottom: solid #FFFFFF;
   background: transparent;
+  width: 100%;
   height: 30px;
-  width: 300px;
   color: #FFFFFF;
-
   border-bottom-width: 1px;
   -webkit-transition: border-bottom-width 0.1s linear; /* Safari */
   transition: border-bottom-width 0.1s linear;
+}
+
+.formStyle textarea {
+  border: 1px solid #FFFFFF;
+  resize: vertical;
+  overflow: auto;
+  height: 15vw;
+}
+
+.formStyle textarea {
+  resize: vertical;
+  overflow: auto;
 }
 
 .formStyle input:focus
@@ -103,7 +114,38 @@
   border-bottom-width: 3px;
 }
 
-.formStyle textarea{
-  resize:none;
-  overflow: hidden;
+/* end forms */
+
+
+/* Flex */
+.flexContainer {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
 }
+
+.nowrap {
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+
+.wrap-reverse {
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+  align-content: space-between;
+}
+/* end flex */
