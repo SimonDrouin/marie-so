@@ -95,6 +95,7 @@
   border-bottom-width: 1px;
   -webkit-transition: border-bottom-width 0.1s linear; /* Safari */
   transition: border-bottom-width 0.1s linear;
+  margin-bottom: 15px;
 }
 
 .formStyle textarea {
@@ -105,6 +106,7 @@
 }
 
 .formStyle textarea {
+  margin-top: 15px;
   resize: vertical;
   overflow: auto;
 }
