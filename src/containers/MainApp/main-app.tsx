@@ -66,6 +66,24 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         event.target.pauseVideo();
     }
 
+    onSubmitContactInfos(name, email, subject, content) {
+
+        fetch("/api/sendEmail",
+        {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                subject: subject,
+                content: content
+            }),
+            headers: {
+              "Content-Type": "application/json"
+            },
+            credentials: "same-origin"
+        })
+    }
+
     render() {
         const teamMemberIconSize = 120;
 
@@ -216,6 +234,18 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                         <textarea name="content"
                                             value={this.props.emailContentInputValue}
                                             onChange={(e) => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className={`${styles.contactFormSection}`}>
+                                <div>
+                                    <div>
+                                        ENVOYER
+                                    </div>
+                                    <div>
+                                        <input type="submit"
+                                            onClick={() => this.onSubmitContactInfos(this.props.nameInputValue, this.props.emailInputValue, this.props.subjectInputValue, this.props.emailContentInputValue)} />
                                     </div>
                                 </div>
                             </div>
