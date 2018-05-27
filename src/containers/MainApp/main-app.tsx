@@ -4,9 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, Body, Scroller, Player } from '../../components';
-import { SectionsEnumStr } from '../../constants/navigation';
-import { StyleConstants } from '../../constants/style';
+import { Header, Body, Scroller, Player, Footer } from '../../components';
+import { SectionsEnumStr, StyleConstants } from '../../constants';
 import * as Actions from '../../actions';
 
 import * as styles from './style.css';
