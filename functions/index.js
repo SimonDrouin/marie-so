@@ -23,20 +23,20 @@ const mailTransport = nodemailer.createTransport({
 });
 
 exports.sendEmail = functions.https.onRequest((request, response) => {
-    console.log('request body! :: ', JSON.stringify(request.body))
-
-    const subject = "subjects!!"
-    const content = "contennnts!! omg"
-    const userEmail = "skuuuut@gmail.com"
+    const userName = request.body.name
+    const email = request.body.email
+    const subject = request.body.subject
+    const content = request.body.content
 
     const mailOptions = {
-        from: `${userEmail} <noreply@eauxtroubles.ca>`,
         to: gmailEmail,
+        subject: `${userName}: ${subject}`,
+        text: `
+Name: ${userName}
+Email: ${email}
+${content}
+`
       };
-
-      // Building Email message.
-      mailOptions['subject'] = subject
-      mailOptions['text'] = content
 
       mailTransport.sendMail(mailOptions)
         .then(() => console.log(`Email sent`, gmailEmail))

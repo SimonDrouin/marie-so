@@ -67,8 +67,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     }
 
     onSubmitContactInfos(name, email, subject, content) {
-
-        fetch("/api/sendEmail",
+        fetch("https://eaux-troubles.firebaseapp.com/api/sendEmail",
         {
             method: "POST",
             body: JSON.stringify({
@@ -136,36 +135,12 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             >
                                 <img src={require('./annabelle.svg')} height={120} width={teamMemberIconSize} /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
-                            <div
-                                style={{
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}
-                            >
-                                <img src={require('./charles.svg')} height={120} width={teamMemberIconSize} /> <div>CHARLES TYSON</div>{' '}
-                            </div>
-                            <div style={{
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}>
-                                <img src={require('./guillaume.svg')} height={120} width={teamMemberIconSize} />{' '}
-                                <div>GUILLAUME L.-MERCIER</div>{' '}
-                            </div>
                             <div style={{
                                     paddingRight: `${
                                         this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
                                     }px`
                                 }}>
                                 <img src={require('./juliette.svg')} height={120} width={teamMemberIconSize} /> <div>JULIETTE BLONDEAU</div>{' '}
-                            </div>
-                            <div style={{
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}>
-                                <img src={require('./marc.svg')} height={120} width={teamMemberIconSize} /> <div>MARC-ANDRÉ MORISSETTE</div>{' '}
                             </div>
                             <div style={{
                                     paddingRight: `${
