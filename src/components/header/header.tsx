@@ -12,12 +12,14 @@ export namespace Header {
         sections: SectionsEnumStr[];
         logo: any;
         burger: any;
+        currentSection?: SectionsEnumStr;
         actions?: any;
         menuIsOpen?: boolean;
     }
 
     export interface State {
         navigation: {
+            currentSection: SectionsEnumStr;
             menuIsOpen: boolean;
         };
     }
@@ -28,13 +30,6 @@ export class Header extends React.Component<Header.Props, Header.State> {
     constructor(props?: Header.Props, context?: any) {
         super(props, context);
     }
-
-    readonly style: any = {
-        position: 'fixed',
-        width: '100%',
-        border: '1px solid black',
-        top: '0vh'
-    };
 
     readonly logoStyle: any = {
         position: 'fixed',
@@ -59,7 +54,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
             </div>
         );
 
-        const menu = <div className={styles.container}>
+        const menu = <div className={styles.menuContainer}>
             {this.props.sections.map(section => {
                 return (
                     <div key={`${section}-header-menu-item`}
@@ -86,7 +81,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
         );
 
         return (
-            <div style={this.style}>
+            <div className={`${styles.container} ${this.props.currentSection === this.props.sections[0] ? styles.hide : ""}`} >
                 {this.props.menuIsOpen ? null : logo}
                 {this.props.menuIsOpen ? menu : null}
                 {burger} {/* TODO: on menu open replace with close icon */}
@@ -101,7 +96,8 @@ export class Header extends React.Component<Header.Props, Header.State> {
 
 function mapStateToProps(state: Header.State) {
     return {
-        menuIsOpen: state.navigation.menuIsOpen
+        menuIsOpen: state.navigation.menuIsOpen,
+        currentSection: state.navigation.currentSection
     };
 }
 

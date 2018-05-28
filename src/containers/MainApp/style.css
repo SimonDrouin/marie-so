@@ -43,7 +43,7 @@
 
 /* Sections */
 .teamMembersContainer {
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .contactSection {
@@ -60,6 +60,10 @@
 
 .contactInfos {
   padding: 2vw 0vw;
+}
+
+.alignRight {
+  text-align: right;
 }
 
 /* Forms */
@@ -116,6 +120,11 @@
   border-bottom-width: 3px;
 }
 
+.buttonLarge {
+  padding: 8px;
+  border: 1px white solid;
+}
+
 /* end forms */
 
 
@@ -151,3 +160,14 @@
   align-content: space-between;
 }
 /* end flex */
+
+.showHideAnimation {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 1s linear;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}

@@ -28,8 +28,8 @@ export class Scroller extends React.Component<Scroller.Props, Scroller.State> {
 
     render() {
         return (
-            <div className={styles.container}>
-                {this.props.sections.map(section => {
+            <div className={`${styles.container} ${this.props.currentSection === this.props.sections[0] ? styles.hide : ""}`}>
+                {this.props.sections.filter(section => section !== this.props.sections[0]).map(section => {
                     return (
                         <div key={section} onClick={() => this.props.actions.scrollerItemClicked(section)}>
                             <div className={`${styles.icon} ${this.props.currentSection === section ? styles.selected : ''}`}></div>

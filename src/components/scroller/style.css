@@ -21,11 +21,19 @@
 }
 
 .container {
-    padding: 20px;
+    padding: 15px;
     overflow: hidden;
     position: fixed;
     right: 0vw;
     top: 50vh;
-    border: 1px solid black;
     z-index: 1000;
+
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 1s linear;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
 }

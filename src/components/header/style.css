@@ -1,4 +1,15 @@
 .container {
+    position: fixed;
+    width: 100%;
+    border: 1px solid black;
+    top: 0vh;
+
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 1s linear;
+}
+
+.menuContainer {
     flex-flow: row nowrap;
     -webkit-flex-flow: row nowrap;
     justify-content: space-around;
@@ -7,10 +18,9 @@
     z-index: 9999;
 }
 
-
 /* Mobile */
 @media all and (max-width: 600px) {
-    .container {
+    .menuContainer {
         flex-direction: column;
     }
 }
@@ -18,4 +28,9 @@
 .item {
     display: inline-flex;
     padding: 20px;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
 }

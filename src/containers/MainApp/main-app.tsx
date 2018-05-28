@@ -66,10 +66,18 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         event.target.pauseVideo();
     }
 
+    formIsValid(name, email, subject, content) {
+        return name !== '' && email !== '' && subject !== '' && content !== '';
+    }
+
     onSubmitContactInfos(name, email, subject, content) {
-        fetch("https://eaux-troubles.firebaseapp.com/api/sendEmail",
-        {
-            method: "POST",
+        if (!this.formIsValid(name, email, subject, content)) {
+            console.warn('Invalid form');
+            return;
+        }
+
+        fetch('https://eaux-troubles.firebaseapp.com/api/sendEmail', {
+            method: 'POST',
             body: JSON.stringify({
                 name: name,
                 email: email,
@@ -77,14 +85,19 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 content: content
             }),
             headers: {
-              "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             },
-            credentials: "same-origin"
-        })
+            credentials: 'same-origin'
+        });
     }
 
     render() {
         const teamMemberIconSize = 120;
+        const test = {
+            width: '200px',
+            paddingLeft: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`,
+            paddingRight: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`
+        };
 
         const SECTIONS = [
             {
@@ -115,40 +128,22 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             <h2>À Propos</h2>
                         </div>
                         <div>
-                            Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip, la
-                            performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux Troubles
-                            propose des vidéoclips uniques possédant une vision artistique.
+                            Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip,
+                            la performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux
+                            Troubles propose des vidéoclips uniques possédant une vision artistique.
                         </div>
                         <div className={styles.sectionHeader}>
                             <h3>L'Équipe</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
-                            <div
-                                style={{
-                                    paddingLeft: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`,
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}
-                            >
-                                <img src={require('./annabelle.svg')} height={120} width={teamMemberIconSize} /> <div>ANABEL B. BOIVIN</div>{' '}
+                            <div style={test}>
+                                <img src={require('./annabelle.svg')} height={120} width="200" /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
-                            <div style={{
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}>
-                                <img src={require('./juliette.svg')} height={120} width={teamMemberIconSize} /> <div>JULIETTE BLONDEAU</div>{' '}
+                            <div style={test}>
+                                <img src={require('./juliette.svg')} height={120} width="200" /> <div>JULIETTE BLONDEAU</div>{' '}
                             </div>
-                            <div style={{
-                                    paddingRight: `${
-                                        this.props.screenWidth <= 500 ? (this.props.screenWidth - teamMemberIconSize) / 2 : 0
-                                    }px`
-                                }}>
-                                <img src={require('./marie-soleil.svg')} height={120} width={teamMemberIconSize} />{' '}
-                                <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
+                            <div style={test}>
+                                <img src={require('./marie-soleil.svg')} height={120} width="200" /> <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
                             </div>
                         </div>
                     </div>
@@ -160,84 +155,99 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             // },
             {
                 id: SectionsEnumStr.ContactUsSection,
-                component: <div className={styles.contactSection}>
-                    <div className={styles.sectionHeader}>
-                        <h2> Nous Contacter </h2>
-                    </div>
-                    <div>
-                        <div className={styles.contactInfos}>
-                            <h3>NOTRE BUREAU</h3>
-                            <div>
-                                <div>
-                                    Marie-Soleil Choquette - Coordonatrice
-                                </div>
-                                <div>
-                                    / 514.475.2140
-                                </div>
-                                <div>
-                                    info@eauxtroubles.ca
-                                </div>
-                            </div>
+                component: (
+                    <div className={styles.contactSection}>
+                        <div className={styles.sectionHeader}>
+                            <h2> Nous Contacter </h2>
                         </div>
-                        <div className={`${styles.formStyle}`}>
-                            <div className={`${styles.contactFormSection} ${styles.flexContainer} ${styles.wrap}`}>
+                        <div>
+                            <div className={styles.contactInfos}>
+                                <h3>NOTRE BUREAU</h3>
                                 <div>
-                                    <div>
-                                        NOM
-                                    </div>
-                                    <input type="text" name="name" value={this.props.nameInputValue} onChange={(e) => this.props.actions.contactUsNameInputValueChanged(e.target.value)} />
-                                </div>
-                                <div className={styles.contactFormField}>
-                                    <div>
-                                        E-MAIL
-                                    </div>
-                                    <input type="text" name="email" value={this.props.emailInputValue} onChange={(e) => this.props.actions.contactUsEmailInputValueChanged(e.target.value)} />
-                                </div>
-                                <div className={styles.contactFormField}>
-                                    <div>
-                                        SUJET
-                                    </div>
-                                    <input type="text" name="subject" value={this.props.subjectInputValue} onChange={(e) => this.props.actions.contactUsSubjectInputValueChanged(e.target.value)} />
+                                    <div>Marie-Soleil Choquette - Coordonatrice</div>
+                                    <div>/ 514.475.2140</div>
+                                    <div>info@eauxtroubles.ca</div>
                                 </div>
                             </div>
-                            <div className={`${styles.contactFormSection}`}>
-                                <div>
+                            <div className={`${styles.formStyle}`}>
+                                <div className={`${styles.contactFormSection} ${styles.flexContainer} ${styles.wrap}`}>
                                     <div>
-                                        TEXTE
+                                        <div>NOM</div>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={this.props.nameInputValue}
+                                            onChange={e => this.props.actions.contactUsNameInputValueChanged(e.target.value)}
+                                        />
                                     </div>
-                                    <div>
-                                        <textarea name="content"
-                                            value={this.props.emailContentInputValue}
-                                            onChange={(e) => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)} />
+                                    <div className={styles.contactFormField}>
+                                        <div>E-MAIL</div>
+                                        <input
+                                            type="text"
+                                            name="email"
+                                            value={this.props.emailInputValue}
+                                            onChange={e => this.props.actions.contactUsEmailInputValueChanged(e.target.value)}
+                                        />
+                                    </div>
+                                    <div className={styles.contactFormField}>
+                                        <div>SUJET</div>
+                                        <input
+                                            type="text"
+                                            name="subject"
+                                            value={this.props.subjectInputValue}
+                                            onChange={e => this.props.actions.contactUsSubjectInputValueChanged(e.target.value)}
+                                        />
                                     </div>
                                 </div>
-                            </div>
+                                <div className={`${styles.contactFormSection}`}>
+                                    <div>
+                                        <div>TEXTE</div>
+                                        <div>
+                                            <textarea
+                                                name="content"
+                                                value={this.props.emailContentInputValue}
+                                                onChange={e => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div className={`${styles.contactFormSection}`}>
-                                <div>
-                                    <div>
+                                <div className={`${styles.contactFormSection} ${styles.alignRight}`}>
+                                    <a
+                                        className={`${styles.buttonLarge} ${styles.showHideAnimation}
+                                            ${
+                                                this.formIsValid(
+                                                    this.props.nameInputValue,
+                                                    this.props.emailInputValue,
+                                                    this.props.subjectInputValue,
+                                                    this.props.emailContentInputValue
+                                                )
+                                                    ? ''
+                                                    : styles.hide
+                                            }`}
+                                        onClick={() =>
+                                            this.onSubmitContactInfos(
+                                                this.props.nameInputValue,
+                                                this.props.emailInputValue,
+                                                this.props.subjectInputValue,
+                                                this.props.emailContentInputValue
+                                            )
+                                        }
+                                    >
                                         ENVOYER
-                                    </div>
-                                    <div>
-                                        <input type="submit"
-                                            onClick={() => this.onSubmitContactInfos(this.props.nameInputValue, this.props.emailInputValue, this.props.subjectInputValue, this.props.emailContentInputValue)} />
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                )
             }
         ];
-
-        const header = (
-            <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
-        );
 
         return (
             <div className={styles.wrapper}>
                 <Scroller sections={SECTIONS.map(({ id }) => id)} currentSection={this.props.currentSection} />
-                {this.props.showHeaders ? header : null}
+                <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
                 <Body sections={SECTIONS} />
             </div>
         );
