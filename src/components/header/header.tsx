@@ -49,13 +49,18 @@ export class Header extends React.Component<Header.Props, Header.State> {
 
     render() {
         const logo = (
-            <div style={this.logoStyle}>
+            <div className={`${styles.logo}`} style={this.logoStyle}>
                 <img src={this.props.logo} width='100px'/>
             </div>
         );
 
+        // todo
+        const sectionToNameMapping = {}
+        sectionToNameMapping[SectionsEnumStr.AboutCompanySection] = "À propos"
+        sectionToNameMapping[SectionsEnumStr.ContactUsSection] = "Nous contacter"
+
         const menu = <div className={styles.menuContainer}>
-            {this.props.sections.map(section => {
+            {this.props.sections.filter(section => section !== this.props.sections[0]).map(section => {
                 return (
                     <div key={`${section}-header-menu-item`}
                         className={styles.item}
@@ -63,7 +68,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
                             this.props.actions.scroll(section);
                         }}
                     >
-                        {section}
+                        {sectionToNameMapping[section]}
                     </div>
                 );
             })}

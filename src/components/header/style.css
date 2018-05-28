@@ -13,15 +13,20 @@
     flex-flow: row nowrap;
     -webkit-flex-flow: row nowrap;
     justify-content: space-around;
-    padding: 1vw 12vw;
-    background-color: black;
-    z-index: 9999;
+    background-color: #090909;
+    z-index: 1000;
+    padding: 0px 70px;
 }
 
 /* Mobile */
-@media all and (max-width: 600px) {
+@media all and (max-width: 500px) {
     .menuContainer {
         flex-direction: column;
+    }
+
+    .logo {
+        visibility: hidden;
+        opacity: 0;
     }
 }
 
