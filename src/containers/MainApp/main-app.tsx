@@ -93,7 +93,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
 
     render() {
         const teamMemberIconSize = 120;
-        const test = {
+        const teamMemberIcon = {
             width: '200px',
             paddingLeft: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`,
             paddingRight: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`
@@ -102,15 +102,8 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
-                component: (
-                    <div>
-                        <img src={logo} height={this.props.screenHeight} width={this.props.screenWidth} />
-                    </div>
-                ),
-                style: {
-                    paddingLeft: '0px',
-                    paddingRight: '0px'
-                }
+                component: <img src={logo} />,
+                style: {}
             },
             // {
             //     id: SectionsEnumStr.HighlightSection,
@@ -136,13 +129,13 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             <h3>L'Équipe</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
-                            <div style={test}>
+                            <div style={teamMemberIcon}>
                                 <img src={require('./annabelle.svg')} height={120} width="200" /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
-                            <div style={test}>
+                            <div style={teamMemberIcon}>
                                 <img src={require('./juliette.svg')} height={120} width="200" /> <div>JULIETTE BLONDEAU</div>{' '}
                             </div>
-                            <div style={test}>
+                            <div style={teamMemberIcon}>
                                 <img src={require('./marie-soleil.svg')} height={120} width="200" /> <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
                             </div>
                         </div>

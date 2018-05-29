@@ -87,7 +87,6 @@ export class Header extends React.Component<Header.Props, Header.State> {
 
         return (
             <div className={`${styles.container} ${this.props.currentSection === this.props.sections[0] ? styles.hide : ""}`} >
-                {this.props.menuIsOpen ? null : logo}
                 {this.props.menuIsOpen ? menu : null}
                 {burger} {/* TODO: on menu open replace with close icon */}
             </div>
