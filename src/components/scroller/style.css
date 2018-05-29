@@ -7,17 +7,10 @@
     margin: 3px;
     width: 0.25em;
     z-index: 1000;
-
-    transition: .10s ease-in-out 0s;
 }
 
 .selected {
     background-color: white;
-}
-
-.icon:hover {
-    background-color: white;
-    transition: .10s ease-in-out 0s;
 }
 
 .container {
@@ -30,10 +23,10 @@
 
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s, opacity 1s linear;
+    transition: opacity 1s linear, visibility 0s;
 }
 
 .hide {
-    visibility: hidden;
     opacity: 0;
+    visibility: hidden;
 }

@@ -99,15 +99,10 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             paddingRight: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`
         };
 
-        const test = {
-            width: '100vw',
-            height: '100vh'
-        }
-
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
-                component: <img style={test} src={logo} />,
+                component: <img className={styles.mainLogo} src={logo} />,
                 style: {
                     padding: '0px'
                 }
@@ -214,7 +209,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
 
                                 <div className={`${styles.contactFormSection} ${styles.alignRight}`}>
                                     <a
-                                        className={`${styles.buttonLarge} ${styles.showHideAnimation}
+                                        className={`${styles.buttonLarge} ${styles.showHideAnimation} ${styles.submit}
                                             ${
                                                 this.formIsValid(
                                                     this.props.nameInputValue,
@@ -244,11 +239,17 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             }
         ];
 
+        // todo
+        const footerStyle = {
+            height: '10vh'
+        };
         return (
             <div className={styles.wrapper}>
                 <Scroller sections={SECTIONS.map(({ id }) => id)} currentSection={this.props.currentSection} />
                 <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
                 <Body sections={SECTIONS} />
+                <div style={footerStyle}>
+                </div>
             </div>
         );
     }
