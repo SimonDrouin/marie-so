@@ -25,7 +25,7 @@ export namespace MainApp {
         subjectInputValue: string;
         emailContentInputValue: string;
 
-        actions?: any;
+        actions: typeof Actions;
     }
 
     export interface State {}
@@ -34,11 +34,11 @@ export namespace MainApp {
 @connect(mapStateToProps, mapDispatchToProps)
 export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
     onScroll() {
-        this.props.actions.scroll();
+        this.props.actions.NavigationActions.scroll();
     }
 
     onResize() {
-        this.props.actions.resize();
+        this.props.actions.WindowActions.resize();
     }
 
     componentDidMount() {
@@ -99,11 +99,18 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             paddingRight: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`
         };
 
+        const test = {
+            width: '100vw',
+            height: '100vh'
+        }
+
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
-                component: <img src={logo} />,
-                style: {}
+                component: <img style={test} src={logo} />,
+                style: {
+                    padding: '0px'
+                }
             },
             // {
             //     id: SectionsEnumStr.HighlightSection,
@@ -170,7 +177,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                             type="text"
                                             name="name"
                                             value={this.props.nameInputValue}
-                                            onChange={e => this.props.actions.contactUsNameInputValueChanged(e.target.value)}
+                                            onChange={e => this.props.actions.FormActions.contactUsNameInputValueChanged(e.target.value)}
                                         />
                                     </div>
                                     <div className={styles.contactFormField}>
@@ -179,7 +186,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                             type="text"
                                             name="email"
                                             value={this.props.emailInputValue}
-                                            onChange={e => this.props.actions.contactUsEmailInputValueChanged(e.target.value)}
+                                            onChange={e => this.props.actions.FormActions.contactUsEmailInputValueChanged(e.target.value)}
                                         />
                                     </div>
                                     <div className={styles.contactFormField}>
@@ -188,7 +195,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                             type="text"
                                             name="subject"
                                             value={this.props.subjectInputValue}
-                                            onChange={e => this.props.actions.contactUsSubjectInputValueChanged(e.target.value)}
+                                            onChange={e => this.props.actions.FormActions.contactUsSubjectInputValueChanged(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -199,7 +206,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                             <textarea
                                                 name="content"
                                                 value={this.props.emailContentInputValue}
-                                                onChange={e => this.props.actions.contactUsEmailContentInputValueChanged(e.target.value)}
+                                                onChange={e => this.props.actions.FormActions.contactUsEmailContentInputValueChanged(e.target.value)}
                                             />
                                         </div>
                                     </div>
@@ -263,6 +270,10 @@ function mapStateToProps(state: RootState) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(Actions as any, dispatch)
+        actions: {
+            WindowActions: bindActionCreators(Actions.WindowActions, dispatch),
+            NavigationActions: bindActionCreators(Actions.NavigationActions, dispatch),
+            FormActions: bindActionCreators(Actions.FormActions, dispatch)
+        }
     };
 }

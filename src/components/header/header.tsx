@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as NavigationActions from '../../actions/navigation-actions';
 import { connect } from 'react-redux';
 import * as styles from './style.css';
+import * as Actions from '../../actions';
 
 export namespace Header {
     export interface Props {
@@ -13,8 +14,9 @@ export namespace Header {
         logo: any;
         burger: any;
         currentSection?: SectionsEnumStr;
-        actions?: any;
         menuIsOpen?: boolean;
+
+        navigationActions?: typeof Actions.NavigationActions;
     }
 
     export interface State {
@@ -65,7 +67,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
                     <div key={`${section}-header-menu-item`}
                         className={styles.item}
                         onClick={() => {
-                            this.props.actions.scroll(section);
+                            this.props.navigationActions.scrollerItemClicked(section);
                         }}
                     >
                         {sectionToNameMapping[section]}
@@ -94,7 +96,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
     }
 
     onBurgerClick() {
-        this.props.actions.headerBurgerClicked();
+        this.props.navigationActions.headerBurgerClicked();
     }
 }
 
@@ -107,6 +109,6 @@ function mapStateToProps(state: Header.State) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(NavigationActions as any, dispatch)
+        navigationActions: bindActionCreators(Actions.NavigationActions, dispatch)
     };
 }

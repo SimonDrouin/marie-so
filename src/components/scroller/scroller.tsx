@@ -5,13 +5,13 @@ import { StyleConstants } from '../../constants/style';
 import { connect } from 'react-redux';
 import { RootState } from '../../reducers';
 import { bindActionCreators } from 'redux';
-import * as NavigationActions from '../../actions/navigation-actions';
+import { NavigationActions } from '../../actions/navigation-actions';
 
 export namespace Scroller {
     export interface Props {
         sections: SectionsEnumStr[];
         currentSection: SectionsEnumStr;
-        actions?: any;
+        navigationActions?: typeof NavigationActions;
     }
 
     export interface State {
@@ -31,7 +31,7 @@ export class Scroller extends React.Component<Scroller.Props, Scroller.State> {
             <div className={`${styles.container} ${this.props.currentSection === this.props.sections[0] ? styles.hide : ""}`}>
                 {this.props.sections.filter(section => section !== this.props.sections[0]).map(section => {
                     return (
-                        <div key={section} onClick={() => this.props.actions.scrollerItemClicked(section)}>
+                        <div key={section} onClick={() => this.props.navigationActions.scrollerItemClicked(section)}>
                             <div className={`${styles.icon} ${this.props.currentSection === section ? styles.selected : ''}`}></div>
                         </div>
                     );
@@ -47,6 +47,6 @@ function mapStateToProps(state: RootState) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(NavigationActions as any, dispatch)
+        navigationActions: bindActionCreators(NavigationActions, dispatch)
     };
 }
