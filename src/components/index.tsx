@@ -1,5 +1,6 @@
 export { Body } from './body'
-export { Header } from './header'
+export { Bubbles } from './bubbles'
 export { Footer } from './footer'
-export { Scroller } from './scroller'
+export { Header } from './header'
 export { Player } from './player'
+export { Scroller } from './scroller'

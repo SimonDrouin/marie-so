@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, Body, Scroller, Player, Footer } from '../../components';
+import { Header, Body, Scroller, Player, Footer, Bubbles } from '../../components';
 import { SectionsEnumStr, StyleConstants } from '../../constants';
 import * as Actions from '../../actions';
 
@@ -240,6 +240,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         };
         return (
             <div className={styles.wrapper}>
+                <Bubbles />
                 <Scroller sections={SECTIONS.map(({ id }) => id)} currentSection={this.props.currentSection} />
                 <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
                 <Body sections={SECTIONS} />
