@@ -33,6 +33,7 @@
 .item {
     display: inline-flex;
     padding: 20px;
+    cursor: pointer;
 }
 
 .hide {

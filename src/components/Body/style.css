@@ -1,7 +1,6 @@
 
 .section {
-    padding-left: 15vh;
-    padding-right: 15vh;
+    padding: 5vh 10vw;
     flex: 1 100%;
 }
 

@@ -120,7 +120,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 component: (
                     <div>
                         <div className={styles.sectionHeader}>
-                            <h2>À Propos</h2>
+                            <h2>À PROPOS</h2>
                         </div>
                         <div>
                             Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip,
@@ -128,7 +128,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             Troubles propose des vidéoclips uniques possédant une vision artistique.
                         </div>
                         <div className={styles.sectionHeader}>
-                            <h3>L'Équipe</h3>
+                            <h3>L'ÉQUIPE</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
                             <div style={teamMemberIcon}>
@@ -156,10 +156,10 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             <h2> Nous Contacter </h2>
                         </div>
                         <div>
-                            <div className={styles.contactInfos}>
+                            <div>
                                 <h3>NOTRE BUREAU</h3>
                                 <div>
-                                    <div>Marie-Soleil Choquette - Coordonatrice</div>
+                                    <div>Marie-Soleil Choquette - Coordonnatrice</div>
                                     <div>/ 514.475.2140</div>
                                     <div>info@eauxtroubles.ca</div>
                                 </div>

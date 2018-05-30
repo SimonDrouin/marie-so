@@ -9,6 +9,7 @@
     background-color: black;
     color: white;
     font-family: 'Montserrat', serif;
+    letter-spacing: 2px;
   }
 
   /* We tell all items to be 100% width, via flex-basis */
@@ -25,9 +26,13 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+h1, h2 {
+  letter-spacing: 10px;
+}
+
 .sectionHeader {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
 }
 
 .scrollHorizontal > .scrollItem {
@@ -61,10 +66,6 @@
   padding-top: 3vw;
   justify-content: space-between;
   align-content: space-between;
-}
-
-.contactInfos {
-  padding: 2vw 0vw;
 }
 
 .alignRight {
