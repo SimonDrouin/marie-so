@@ -6,7 +6,10 @@ import { connect } from 'react-redux';
 import * as styles from './style.css';
 
 export namespace Bubbles {
-    export interface Props {}
+    export interface Props {
+        top: string; // This component has an absolute position, the parent needs to set it.
+        left: string; // ...
+    }
 
     export interface State {}
 }
@@ -19,7 +22,7 @@ export class Bubbles extends React.Component<Bubbles.Props, Bubbles.State> {
 
     render() {
         return (
-            <div className={styles.container}>
+            <div className={styles.container} style={{top: this.props.top, left: this.props.left}}>
                 <svg className={`${styles.bubbles}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 701 1024" style={{overflow: 'visible'}}>
 
                 <g className={`${styles.bubblesLarge}`}  strokeWidth="7">

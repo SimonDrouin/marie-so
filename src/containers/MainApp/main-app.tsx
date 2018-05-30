@@ -97,7 +97,10 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         const SECTIONS = [
             {
                 id: SectionsEnumStr.WelcomeSection,
-                component: <img className={styles.mainLogo} src={logo} />,
+                component: <div>
+                    <Bubbles top='0%' left='70vw' />
+                    <img className={styles.mainLogo} src={logo} />
+                </div>,
                 style: {
                     padding: '0px'
                 }
@@ -240,7 +243,6 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
         };
         return (
             <div className={styles.wrapper}>
-                <Bubbles />
                 <Scroller sections={SECTIONS.map(({ id }) => id)} currentSection={this.props.currentSection} />
                 <Header sections={SECTIONS.map(({ id }) => id)} logo={require('./logo-main.svg')} burger={require('./burger-header.svg')} />
                 <Body sections={SECTIONS} />
