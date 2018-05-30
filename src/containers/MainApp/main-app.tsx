@@ -93,11 +93,6 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
 
     render() {
         const teamMemberIconSize = 120;
-        const teamMemberIcon = {
-            width: '200px',
-            paddingLeft: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`,
-            paddingRight: `${this.props.screenWidth <= 500 ? (this.props.screenWidth - 200) / 2 : '20'}px`
-        };
 
         const SECTIONS = [
             {
@@ -123,21 +118,21 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             <h2>À PROPOS</h2>
                         </div>
                         <div>
-                            Fondée en 2017, Eaux Troubles est une boîte de production basée à Montréal qui se spécialise dans le videoclip,
-                            la performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'Eaux
-                            Troubles propose des vidéoclips uniques possédant une vision artistique.
+                            Fondée en 2017, <i>Eaux Troubles</i> est une boîte de production basée à Montréal qui se spécialise dans le vidéoclip,
+                            la performance et captations lives de groupes de musique. Issue du domaine cinématographique, l'équipe d'<i>Eaux
+                            Troubles</i> propose des vidéoclips uniques possédant une vision artistique.
                         </div>
                         <div className={styles.sectionHeader}>
                             <h3>L'ÉQUIPE</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
-                            <div style={teamMemberIcon}>
+                            <div className={`${styles.teamMember}`}>
                                 <img src={require('./annabelle.svg')} height={120} width="200" /> <div>ANABEL B. BOIVIN</div>{' '}
                             </div>
-                            <div style={teamMemberIcon}>
+                            <div className={`${styles.teamMember}`}>
                                 <img src={require('./juliette.svg')} height={120} width="200" /> <div>JULIETTE BLONDEAU</div>{' '}
                             </div>
-                            <div style={teamMemberIcon}>
+                            <div className={`${styles.teamMember}`}>
                                 <img src={require('./marie-soleil.svg')} height={120} width="200" /> <div>MARIE-SOLEIL CHOQUETTE</div>{' '}
                             </div>
                         </div>

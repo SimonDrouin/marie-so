@@ -39,12 +39,6 @@ h1, h2 {
   flex: 0 0 auto;
 }
 
-/* Mobile */
-/* @media all and (max-width: 500px) {
-  .teamMember {
-  }
-} */
-
 
 /* Sections */
 .mainLogo {
@@ -52,8 +46,23 @@ h1, h2 {
     height: 100vh;
 }
 
-.teamMembersContainer {
-  justify-content: center;
+.teamMember {
+  width: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media all and (min-width: 500px) {
+  .teamMembersContainer {
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .teamMember {
+    padding-left: calc((100% - 200px) / 2);
+    padding-right: calc((100% - 200px) / 2);
+  }
 }
 
 .contactSection {
@@ -166,7 +175,6 @@ h1, h2 {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-
 
 .wrap-reverse {
   -webkit-flex-wrap: wrap-reverse;
