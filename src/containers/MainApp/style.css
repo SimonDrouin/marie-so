@@ -68,6 +68,10 @@ h1, h2 {
   align-content: space-between;
 }
 
+.contactFormField {
+  width: 300px;
+}
+
 .alignRight {
   text-align: right;
 }
@@ -108,26 +112,26 @@ h1, h2 {
   margin-bottom: 15px;
 }
 
+.formStyle textarea {
+  border: 1px solid #FFFFFF;
+  resize: vertical;
+  overflow: auto;
+  height: 15vh;
+  margin-top: 15px;
+
+  -webkit-transition: border-width 0.1s linear; /* Safari */
+  transition: border-width 0.1s linear, visibility 0s, opacity 1s linear;
+}
+
 .formStyle .submit {
   border-radius: 5px;
   -webkit-transition: border-width 0.1s linear; /* Safari */
   transition: border-width 0.1s linear, visibility 0s, opacity 1s linear;
 }
 
-.formStyle textarea {
-  border: 1px solid #FFFFFF;
-  resize: vertical;
-  overflow: auto;
-  height: 15vw;
-}
-
-.formStyle textarea {
-  margin-top: 15px;
-  resize: vertical;
-  overflow: auto;
-}
 
 .formStyle input:focus,
+.formStyle textarea:focus,
 .formStyle .submit:hover
 {
   border-width: 3px;

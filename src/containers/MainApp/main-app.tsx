@@ -153,7 +153,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                 component: (
                     <div className={styles.contactSection}>
                         <div className={styles.sectionHeader}>
-                            <h2> Nous Contacter </h2>
+                            <h2> NOUS CONTACTER </h2>
                         </div>
                         <div>
                             <div>
@@ -166,7 +166,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             </div>
                             <div className={`${styles.formStyle}`}>
                                 <div className={`${styles.contactFormSection} ${styles.flexContainer} ${styles.wrap}`}>
-                                    <div>
+                                    <div className={styles.contactFormField}>
                                         <div>NOM</div>
                                         <input
                                             type="text"
