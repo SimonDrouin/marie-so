@@ -89,6 +89,11 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             },
             credentials: 'same-origin'
         });
+
+        this.props.actions.FormActions.contactUsNameInputValueChanged('')
+        this.props.actions.FormActions.contactUsEmailInputValueChanged('')
+        this.props.actions.FormActions.contactUsSubjectInputValueChanged('')
+        this.props.actions.FormActions.contactUsEmailContentInputValueChanged('')
     }
 
     render() {
@@ -215,8 +220,8 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                                                     this.props.subjectInputValue,
                                                     this.props.emailContentInputValue
                                                 )
-                                                    ? ''
-                                                    : styles.hide
+                                                ? ''
+                                                : styles.hide
                                             }`}
                                         onClick={() =>
                                             this.onSubmitContactInfos(
