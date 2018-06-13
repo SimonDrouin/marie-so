@@ -1,9 +1,7 @@
 import * as _ from 'lodash';
-import { Action } from 'redux';
 import * as Actions from '../actions/constants/navigation-action-constants';
-import { handleAction, handleActions } from 'redux-actions';
-import { getScreenHeight, getScreenWidth } from '../helpers';
-import { SectionsEnum, SectionsEnumStr } from '../constants/navigation';
+import { handleActions } from 'redux-actions';
+import { SectionsEnumStr } from '../constants/navigation';
 
 declare type NavigationStoreState = {
     currentSection: SectionsEnumStr;

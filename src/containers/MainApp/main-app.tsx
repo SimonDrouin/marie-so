@@ -1,11 +1,10 @@
 import * as React from 'react';
-import * as _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, Body, Scroller, Player, Footer, Bubbles } from '../../components';
-import { SectionsEnumStr, StyleConstants } from '../../constants';
+import { Header, Body, Scroller, Bubbles } from '../../components';
+import { SectionsEnumStr} from '../../constants';
 import * as Actions from '../../actions';
 
 import * as styles from './style.css';
