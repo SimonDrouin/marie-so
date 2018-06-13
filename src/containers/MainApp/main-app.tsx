@@ -130,7 +130,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                             Troubles</i> propose des vidéoclips uniques possédant une vision artistique.
                         </div>
                         <div className={styles.sectionHeader}>
-                            <h3>L'ÉQUIPE</h3>
+                            <h3>LES FONDATRICES</h3>
                         </div>
                         <div className={`${styles.teamMembersContainer} ${styles.scrollHorizontal} ${styles.scrollItem}`}>
                             <div className={`${styles.teamMember}`}>
