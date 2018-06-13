@@ -125,7 +125,7 @@ h1, h2 {
   border: 1px solid #FFFFFF;
   resize: vertical;
   overflow: auto;
-  height: 15vh;
+  height: 25vh;
   margin-top: 15px;
 
   -webkit-transition: border-width 0.1s linear; /* Safari */
