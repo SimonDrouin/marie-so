@@ -33,8 +33,6 @@ export class Player extends React.Component<Player.Props, Player.State> {
 
     render() {
         const playerOptions = {
-            // height: this.props.screenHeight,
-            // width: this.props.screenWidth,
             playerVars: {
                 // https://developers.google.com/youtube/player_parameters
                 autoplay: 1
@@ -42,7 +40,12 @@ export class Player extends React.Component<Player.Props, Player.State> {
         };
 
         return (
-            <YouTube className={styles.mediaPlayer} id="main-player" videoId="2g811Eo7K8U" opts={playerOptions} onReady={this.onPlayerReady} />
+            <YouTube
+                id="main-player"
+                videoId="jQE13qVFOug"
+                className={styles.mediaPlayer}
+                opts={playerOptions}
+                onReady={this.onPlayerReady} />
         );
     }
 }

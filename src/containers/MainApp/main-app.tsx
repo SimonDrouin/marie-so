@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { RootState } from '../../reducers';
-import { Header, Body, Scroller, Bubbles } from '../../components';
+import { Header, Body, Scroller, Bubbles, Player } from '../../components';
 import { SectionsEnumStr} from '../../constants';
 import * as Actions from '../../actions';
 
@@ -102,7 +102,7 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
             {
                 id: SectionsEnumStr.WelcomeSection,
                 component: <div>
-                    <Bubbles top='0%' left='70vw' />
+                    <Bubbles />
                     <img className={styles.mainLogo} src={logo} />
                 </div>,
                 style: {
@@ -146,10 +146,17 @@ export class MainApp extends React.Component<MainApp.Props, MainApp.State> {
                     </div>
                 )
             },
-            // {
-            //     id: SectionsEnumStr.LibrarySection,
-            //     component: <div>Nos Realisations</div>
-            // },
+            {
+                id: SectionsEnumStr.LibrarySection,
+                component: <div>
+                    <div className={`${styles.sectionHeader}`}>
+                        <h2> NOS RÉALISATIONS </h2>
+                    </div>
+                    <div>
+                        <Player> </Player>
+                    </div>
+                </div>
+            },
             {
                 id: SectionsEnumStr.ContactUsSection,
                 component: (

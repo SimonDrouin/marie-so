@@ -60,6 +60,7 @@ export class Header extends React.Component<Header.Props, Header.State> {
         const sectionToNameMapping = {}
         sectionToNameMapping[SectionsEnumStr.AboutCompanySection] = "À propos"
         sectionToNameMapping[SectionsEnumStr.ContactUsSection] = "Nous contacter"
+        sectionToNameMapping[SectionsEnumStr.LibrarySection] = "Nos Réalisations"
 
         const menu = <div className={styles.menuContainer}>
             {this.props.sections.filter(section => section !== this.props.sections[0]).map(section => {

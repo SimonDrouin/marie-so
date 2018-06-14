@@ -1,15 +1,15 @@
 export enum SectionsEnum {
     WelcomeSection,
+    LibrarySection,
     AboutCompanySection,
     ContactUsSection
     //HighlightSection,
-    //LibrarySection,
 }
 
 export enum SectionsEnumStr {
     WelcomeSection = 'WelcomeSection',
+    LibrarySection = 'LibrarySection',
     AboutCompanySection = 'AboutCompanySection',
-    ContactUsSection = 'ContactUsSection',
+    ContactUsSection = 'ContactUsSection'
     //HighlightSection = 'HighlightSection',
-    //LibrarySection = 'LibrarySection',
 }
